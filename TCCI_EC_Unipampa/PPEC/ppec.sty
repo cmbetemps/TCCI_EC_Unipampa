@@ -1,0 +1,54 @@
+% Definições LaTeX para Projeto de TCC I
+%
+% Created by Ana Paula Lüdtke Ferreira - Janeiro de 2021
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ppec}[2021/01/15]
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{epsfig}
+\usepackage[T1]{fontenc}        % pacote para conj. de caracteres correto
+\usepackage[utf8]{inputenc}     % pacote para acentuação
+\usepackage{graphicx}           % pacote para importar figuras
+\usepackage{times}              % pacote para usar fonte Adobe Times
+\usepackage{mathptmx}           % pacote para usar fonte Adobe Times nas fórmulas
+\usepackage{amssymb}            % pacote com diversos símbolos úteis
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalize]{cleveref}
+\usepackage[brazilian]{babel}
+\selectlanguage{brazilian}
+
+%\def\advisor#1{\gdef\@advisor{#1}}
+%\def\coadvisor#1{\gdef\@coadvisor{#1}}
+\newcommand{\advisorname}{Orientador}
+\newcommand{\coadvisorname}{Coorientador}
+
+\newcommand{\advisor}[1]{\gdef\@advisor{#1}}
+\newcommand{\coadvisor}[1]{\gdef\@coadvisor{#1}}
+
+
+\def\@trymaketitle{%
+  \newpage\null\thispagestyle{empty}
+	\hyphenpenalty 10000 
+	\exhyphenpenalty 10000
+	\begin{center}
+  \includegraphics[width=4cm,height=2.48cm]{logo_unipampa_color.png}
+	\end{center}
+  \begin{flushleft}%
+  \let \footnote \thanks
+    {\par\large\hrule\vskip 6pt\par
+            \textbf{\MakeUppercase Universidade Federal do Pampa}\par
+            \textbf{\MakeUppercase Proposta de Trabalho de Conclusão de Curso}\par
+            \textbf{\MakeUppercase Bacharelado em Engenharia de Computação}\par
+            \textbf{Título: }{\MakeUppercase\@title\par}%
+            \textbf{Discente: }{\@author\par}%
+            \textbf{\advisorname: }{\@advisor\par}%
+            \@ifundefined{@coadvisor}{}{\textbf{\coadvisorname: }{\@coadvisor\par}}%
+    \vskip 6pt\hrule}%
+  \end{flushleft}%
+  \vskip 18pt
+}
+\renewcommand{\maketitle}{\@trymaketitle}
+

@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{ppec}
+
+%%% Qualquer coisa depois do símbolo % é um comentário
+
+%%% Seu nome
+\author{Ana Paula Lüdtke Ferreira}
+
+%%% Título do trabalho
+\title{Modelo \LaTeX para Projeto de Trabalho de Conclusão de Curso}
+
+%%% Orientador - obrigatório
+\advisor{Noam Chomsky}
+
+%%% Coorientador - opcional
+\coadvisor{Ada Lovelace}
+
+%%% Arrume o nome, caso sua orientadora ou coorientadora seja mulher:
+%\renewcommand{\advisorname}{Orientadora}
+\renewcommand{\coadvisorname}{Coorientadora}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+\label{sec-introducao}
+
+Aqui vai o texto da introdução. Se preferir, faça os textos das seções em arquivos separados e inclua aqui com o comando \emph{input}. Assim o texto fica modular e é mais fácil trocar as coisas de lugar. Segundo \cite{lamport94latex}, é mais fácil fazer desse jeito.
+
+\section{Objetivos}
+\label{sec-objetivos}
+
+%\section{Material e métodos}
+\section{Metodologia}
+\label{sec-metodologia}
+
+\section{Cronograma}
+\label{sec-cronograma}
+
+
+\bibliographystyle{abntex2-alf}
+\bibliography{bibliografia}
+
+
+\end{document}

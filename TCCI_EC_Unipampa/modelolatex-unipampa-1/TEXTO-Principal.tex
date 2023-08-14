@@ -1,0 +1,293 @@
+%
+% Exemplo genérico de uso da classe unipampa.cls
+%
+% Se você não tem familiaridade com o LaTeX, este arquivo dá algumas orientações.
+% Para um aproveitamento melhor, sugere-se usar o livro LaTeX - A Document Preparation System,
+% de Leslie Lamport. Na Internet estão disponíveis também alguns milhares de tutorias.
+% Na UNIPAMPA, volta e meia tem cursos, fique atento.
+%
+% O símbolo % é um comentário de linha, então tudo que aparecer depois dele não é considerado
+% no texto final. Você pode limpar todos os comentários deste arquivo, depois que colocar os
+% dados corretos, sem prejuízo do texto final.
+%
+
+\documentclass[tcc,baec]{unipampa}
+% Para usar o modelo, deve-se informar o curso e o tipo de documento e o tipo de documento que deve ser produzido.
+% Cursos:
+%   * código do curso   -- Usar o código do curso, conforme está registrado no SIE 
+%                         (baec para Engenharia de Computação, por exemplo) quando
+%                         se tratar de curso de graduação; usar a sigla do programa
+%                         quando se tratar de pós-graduação stricto sensu (ppgcap
+%                         para o Programa de Pós-graduação em Computação Aplicada,
+%                         por exemplo; para especializações, definir os campos
+%                         apropriadamente com o comando \course{nome-do-curso}
+%                         (sem o termo ``Especialização'') e \campus{nome-do-campus}.
+%   
+% Tipos de Documento:
+%   * tcc               -- Trabalhos de Conclusão de Curso
+%   * espec             -- Monografias de Especialização
+%   * mestrado          -- Dissertações de Mestrado (acadêmico)
+%   * mestradoprof      -- Dissertações de Mestrado (profissional)
+%   * doutorado         -- Teses de Doutorado
+%   * projetotcc 				-- Projeto de TCC
+%   * projetoespec   		-- Projeto de Especialização
+%   * projetomestrado		-- Projeto de qualificação de Mestrado
+%   * projetodoutorado	-- Projeto de qualificação de Doutorado
+%   * relatorio         -- Relatório de projeto (precisa ter o curso de origem e não tem muitos detalhes - trabalho em andamento)
+% 
+% Outras Opções:
+%   * english    -- para textos em inglês
+%   * openright  -- força início de capítulos em páginas ímpares (padrão da biblioteca)
+%   * oneside    -- desliga frente-e-verso
+%   * final      -- versão final do texto
+
+% Programas de pós-graduação com mais de uma área de concentração devem declarar explicitamente
+% a área de concentração da dissertação ou tese, por meio do comando
+%\renewcommand{\areacourse}{Sanidade Animal}
+
+\usepackage[T1]{fontenc}        % pacote para conj. de caracteres correto
+\usepackage[utf8]{inputenc}     % pacote para acentuação
+\usepackage{graphicx}           % pacote para importar figuras
+\usepackage{times}              % pacote para usar fonte Adobe Times
+\usepackage{mathptmx}           % pacote usar fonte Adobe Times nas fórmulas
+
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	% pacote para usar citações abnt
+
+%%%%%%%%%%%% Macros bem jeitosas - a macro obso serve para o seu orientador escrever comentários no
+%%%%%%%%%%%% texto, que vão aparecer em azul. A macro \obsa serve para você escrever, e os seus comentários
+%%%%%%%%%%%% vão aparecer em laranja. Quando você quiser gerar uma versão sem comentários, comente, com um %
+%%%%%%%%%%%% a macro que contém texto e descomente a que não tem. Voilá! Todos os comentários vão desaparecer.
+
+\newcommand{\obso}[1]{\textcolor{blue}{#1}}
+%\newcommand{\obso}[1]{}
+\newcommand{\obsa}[1]{\textcolor{orange}{#1}}
+%\newcommand{\obsa}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Titulo e autor do trabalho. É possível que o trabalho tenha mais do que
+% um autor. Todos devem ser listados usando o comando \author{Sobrenome}{Nome}
+% Pelo menos um autor é obrigatório.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Um exemplo de trabalho em acordo às normas da UNIPAMPA}
+
+\author{Silva}{João da}
+%\author{Santos}{Maria dos}   % caso haja mais do que um autor; liste todos assim.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Orientação (orientador é obrigatório; co-orientador é opcional)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\advisor[Prof\textsuperscript{a}.~Dr\textsuperscript{a}.]{Ferreira}{Ana Paula Lüdtke}
+\coadvisor[Prof.~Dr.]{Einstein}{Albert}
+
+% Se o seu orientador ou co-orientador for mulher, acerte o nome:
+\renewcommand{\advisorname}{Orientadora}
+%\renewcommand{\coadvisorname}{Coorientadora}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Definições para registro na biblioteca e banca de apresentação do trabalho
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cutter{---} 								  % número de catalogação da biblioteca, na versão final do trabalho; 
+                                              % deixar em branco antes de produzir a versão final ou se a versão
+                                              % final não for registrada na biblioteca
+                                              % na versão final, gerar o código no sistema GURI
+                                                  
+%%%% Se não colocar a banca, a folha de aprovação não aparece   
+
+% instituição do orientador - quase sempre vai ser a UNIPAMPA, então só use se a instituição for diferente.
+%\instorientador{Universidade da Fronteira Sul}
+
+% membro número 1 da banca de defesa (orientador não entra)
+\banca[Prof.~Dr.]{Silva}{Fulano}
+% instituição do membro da banca
+\inst{Universidade Federal do Pampa}		
+
+% membro número 2 da banca de defesa
+\banca[Prof.~Dr.]{Cardoso}{Beltrano}   
+% instituição do membro da banca
+\inst{Universidade Federal do Pampa}						
+
+% membro número 3 da banca de defesa 
+\banca[Prof\textsuperscript{a}.~Dr\textsuperscript{a}.]{d'Arc}{Joana}  
+% instituição do membro da banca
+\inst{EMBRAPA Pecuária Sul}							          
+
+\defesa{11}{setembro}{2020}                       % data da defesa - dia, mês e ano
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% A data deve ser a da defesa ou a da geração do documento, o que vier primeiro; 
+% se nao especificada, são gerados mês e ano correntes. Use somente se for gerar 
+% novamente o documento após a defesa.
+%\date{maio}{2001}
+
+% O local de realização do trabalho deve ser especificado 
+% com o comando \location. 
+\location{Bagé}{RS}
+
+\sloppy % para o texto não ficar esquisito quando se usar elementos muito compridos que não podem ser separados.
+
+%
+% Palavras-chave para o resumo (na língua do documento)
+%
+% Iniciar todas com a primeira legra maiúscula e as demais letras minúsculas, 
+% exceto no caso de abreviaturas.
+%
+\keyword{Formatação eletrônica de documentos}
+\keyword{\LaTeX}
+\keyword{ABNT}
+\keyword{UNIPAMPA}
+
+
+%
+% Início do documento
+%
+
+\begin{document}
+
+%
+% Produção das folhas de rosto, da ficha catalográfica do documento e da folha de aprovação. 
+% Se todos os dados acima foram preenchidos corretamente, as folhas de rosto devem sair no formato correto.
+%
+
+\maketitle
+
+%%%%%
+%%%%% Elementos pré-textuais: só insira na versão final do trabalho (TCC, monografia, dissertação ou tese)
+%%%%%
+\input{CAPA-ElementosPreTextuais}
+
+%%%%%
+%%%%% Resumo, abstract (resumo em inglês) e palavras-chave do trabalho - faça por último
+%%%%%
+\input{TEXTO-Resumo}
+
+% Lista de figuras
+%
+% Todas as figuras declaradas no texto dentro de um ambiente figure serão numeradas apropriadamente e
+% colocadas automaticamente nesta lista, com o número de página onde aparecem correto:
+%
+\listoffigures
+
+
+% Lista de tabelas
+%
+% Todas as tabelas declaradas no texto dentro de um ambiente table serão numeradas apropriadamente e
+% colocadas automaticamente nesta lista, com o número de página onde aparecem correto:
+%
+\listoftables
+
+% Listas de definições e teoremas, para quem usar o pacote formais, para trabalhos que possuam definições formais e teoremas
+%\listofdefinitions
+%\listoftheorems
+
+
+% Lista de abreviaturas e siglas
+%
+% O parâmetro deve ser a abreviatura mais longa. Essa lista é opcional, mas é muito conveniente.
+% Só não abuse. use somente siglas consagradas. Se quiser economizar na escrita, use o comando
+% \newcommand{\MT}{Máquina de Turing} e use \MT sempre que quiser que o termo apareça completo.
+% Isso torna a leitura do texto mais fluente.
+\begin{listofabbrv}{UNIPAMPA}
+        \item[ABNT]     Associação Brasileira de Normas Técnicas
+        \item[ACM]      Association for Computing Machinery
+        \item[IEEE]     Institute of Electrical and Electronics Engineers 
+        \item[IP]       Internet Protocol
+        \item[RTP]      Real-Time Protocol
+        \item[RSSF]     Rede de Sensores sem Fio
+        \item[SIMD]     Single Instruction Multiple Data
+        \item[UNIPAMPA] Universidade Federal do Pampa
+        \item[UFRGS]    Universidade Federal do Rio Grande do Sul
+\end{listofabbrv}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Sumário - elemento obrigatório do trabalho - gerado automaticamente com
+%           o comando abaixo.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Aqui comeca o texto propriamente dito. O texto pode ser todo escrito neste 
+% mesmo arquivo, mas pode-se separar o texto em diversos arquivos, que podem
+% ser incluídos com o comando \input{nome-do-arquivo} (inclui o arquivo com
+% nome nome-do-arquivo.tex), que deve estar no mesmo diretório do texto
+% principal. Se estiver em outro diretório, pode ser incluído também, usando
+% .. (para subir na árvore de diretórios) ou / (para descer), como em
+% \input{Textos/nome-do-arquivo}. Dessa forma, o arquivo será buscado no
+% subdiretório Textos; se quiser usar caminhos na árvore de diretórios, use
+% \input{../Textos/nome-do-arquivo}, que procura o arquivo que está no diretório
+% Textos, um nível acima na estrutura.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% E aqui vai a parte principal:
+
+\chapter{Introdução}
+\label{cap-introducao}
+\input{TEXTO-Introducao}
+
+\chapter{Material e métodos}
+\label{cap-metodologia}
+\input{TEXTO-Metodologia}
+
+\chapter{Revisão da literatura}
+\label{cap-revisao-bibliografica}
+\label{cap-trabalhos-relacionados}
+%\input{TEXTO-FundamentacaoTeorica}
+%\input{TEXTO-TrabalhosRelacionados}
+
+\chapter{O nome da minha contribuição}
+\label{cap-desenvolvimento}
+%\input{TEXTO-Desenvolvimento}
+
+%\chapter{Resultados e discussão}
+\label{cap-minha-contribuicao}
+%\input{TEXTO-Resultados}
+
+%\chapter{Considerações finais} 
+% A normatização da biblioteca diz que em TCC este capítulo deve ser chamado de "Considerações Finais". Se vocês está 
+% escrevendo outro tipo de texto, como uma dissertação ou tese, verifique a norma do PPG.
+% \label{cap-conclusao-e-trabalhos-futuros}
+% \input{TEXTO-Conclusao}
+
+%
+% O arquivo de formatação abntex2-alf.bst coloca todas as entradas no formato correto.
+%
+
+\bibliographystyle{abntex2-alf}
+\bibliography{TEXTO-Bibliografia}
+
+\chapter*{Glossário}
+
+O glossário é opcional. Se precisar, consulte o manual da biblioteca sobre o seu formato adequado.
+
+\appendix
+
+\chapter{Nome do Apêndice}
+
+Depois do termo ``appendix'', qualquer capítulo aparecerá na forma correta, com o termo ``Apêndice''. Use apêndices quando houver material produzido pelo autor que ajuda no entendimento do trabalho mas que não faz parte do texto principal. Modelos de questionários utilizados, código fonte de programas, partituras completas, provas de teoremas acessórias, etc.
+
+\annex
+
+\chapter{Nome do Anexo}
+
+Depois do termo ``annex'', qualquer capítulo aparecerá na forma correta, com o termo ``Anexo'' no título. Use anexos quando se tratar de material não produzido pelo autor, mas necessário no entendimento do trabalho. Por exemplo, definições matemáticas, sintaxe formal de linguagens de programação, trechos de manuais, etc.
+
+%
+% Finalização do documento. A partir desse comando qualquer coisa escrita será ignorada:
+%
+
+\end{document}
