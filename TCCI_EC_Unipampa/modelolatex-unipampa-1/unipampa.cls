@@ -763,7 +763,9 @@
 
 
 %\RequirePackage[tocindentauto,tocfullflat]{tocstyle}
+
 \RequirePackage[tocflat]{tocstyle}
+
 %\settocfeature[toc][0]{entryhook}{\bfseries\uppercase}
 %\settocfeature[toc][1]{entryhook}{\bfseries}
 \settocfeature[toc]{entryhook}{\bfseries}
