@@ -2042,7 +2042,8 @@ FUNCTION {set.default.abnt.variables}
   abnt.doi.expand.to.url 'abnt.doi :=
   #3 'abnt.etal.cite :=
   #3 'abnt.etal.list :=
-  "et al." 'abnt.etal.text :=
+%  "et al." 'abnt.etal.text :=       % Tratamento do 'et al.' na versão anterior. Linha abaixo com o ajuste do itálico
+	"\textit{et al.}" 'abnt.etal.text :=
   #0 'abnt.full.initials :=
   #0 'abnt.last.names :=      %#0 abnt-style, #1 bibtex-style
   #1 'abnt.ldots.type :=      %#0 use nothing, #1 use \ldots, #2 use $\ldots$, 3# use {...}
