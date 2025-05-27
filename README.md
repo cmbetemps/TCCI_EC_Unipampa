@@ -1,4 +1,4 @@
-# TCCI_EC_Unipampa
+# TCCs_EC_Unipampa
 Templates e documentos de interesse para discentes dos componentes curriculares de Trabalho de Conclusão de Curso I (TCC I) e II (TCC II) do curso de bacharelado em Engenharia de Computação do campus Bagé da Universidade Federal do Pampa - UNIPAMPA.
 
 
